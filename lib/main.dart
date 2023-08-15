@@ -32,14 +32,20 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(title: const Text("AppBar")),
-        body: Column(
-          crossAxisAlignment:
-              CrossAxisAlignment.start, // Alinha os widgets à esquerda
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            containerBuild(bgColor: Colors.yellow, w: 50, h: 50),
-            containerBuild(bgColor: Colors.red, w: 90, h: 50),
-            containerBuild(bgColor: Colors.green, w: 150, h: 50),
-            containerBuild(bgColor: Colors.blue, w: 200, h: 50),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                containerBuild(bgColor: Colors.yellow, w: 50, h: 50),
+                containerBuild(bgColor: Colors.red, w: 90, h: 50),
+                containerBuild(bgColor: Colors.green, w: 150, h: 50),
+                containerBuild(bgColor: Colors.blue, w: 200, h: 50),
+              ],
+            )
           ],
         ),
       ),
