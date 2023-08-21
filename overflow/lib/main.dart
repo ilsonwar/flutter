@@ -29,20 +29,18 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
           appBar: AppBar(title: const Text("AppBar")),
-          body: Column(children: [
-            Expanded(
-                flex: 30,
-                child: containerBuild(w: double.infinity, h: double.infinity)),
-            Expanded(
-                flex: 60,
-                child: containerBuild(w: double.infinity, h: double.infinity)),
-            Expanded(
-                flex: 10,
-                child: containerBuild(w: double.infinity, h: double.infinity)),
-          ])),
-    );
+          body: OrientationBuilder(builder: (context, orientation) {
+            return orientation == Orientation.portrait
+                ? containerBuild(
+                    w: double.infinity, h: double.infinity, bgColor: Colors.red)
+                : containerBuild(
+                    w: double.infinity,
+                    h: double.infinity,
+                    bgColor: Colors.green);
+          }),
+        ));
   }
 }
